@@ -191,7 +191,8 @@ public class MainNode : Node2D
     public override void _Ready()
     {
         base._Ready();
-        ReadyCar();
+        ReadySpring();
+        //ReadyCar();
     }
 
     public override void _Draw()
