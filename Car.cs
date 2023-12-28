@@ -45,9 +45,9 @@ namespace Edge
         public string Mode { get => mode; set => mode = value; }
         public double[] GearRatio { get => gearRatio; set => gearRatio = value; }
         public int NumberOfGears { get => numberOfGears; set => numberOfGears = value; }
-
         public double CurrentGearRatio { get => gearRatio[gearNumber]; set => gearRatio[gearNumber] = value;}
-
+        public double VX { get => this.Q[0];}
+        public double X { get => this.Q[1];}
         // Simulate a gear shift
         public void shiftGear(int shift) {
             // If the car will shift beyon highes gear, return.

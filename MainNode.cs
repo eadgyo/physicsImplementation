@@ -142,6 +142,43 @@ public class MainNode : Node2D
         AddChild(line);
     }
 
+    public void ReadyCar() {
+        Boxter boxter = new Boxter(50, 0, 0, 0, 0, 0, 0, 1.0);
+        double dt = 0.06;
+        Line2D line = new Line2D
+        {
+            Width = 4.0f,
+            DefaultColor = Color.Color8(255, 255, 0)
+        };
+        double engineRPM = 0.0;
+        double time = 0.0;
+        for (int i = 0; i < boxter.NumberOfGears; i++) {
+            engineRPM = boxter.OmegaE;
+            double startTime = time;
+            while (engineRPM < boxter.Redline) {
+                boxter.UpdatePositionAndVelocity(dt);
+                time += dt;
+                engineRPM = boxter.VX * 60.0 * boxter.CurrentGearRatio * boxter.FinalDriveRatio / (2.0 * Math.PI * boxter.WheelRatio);
+                boxter.OmegaE = engineRPM;
+                //GD.Print(new Vector2((float)time, (float)engineRPM));
+                line.AddPoint(new Vector2(10 + (float)time * 10 , 500 -(float)engineRPM / 20));
+                //GD.Print(new Vector2(10 +(float)time * 10 , 500 -(float)engineRPM / 20));
+            }
+            GD.Print("Current gear : " + boxter.GearNumber);
+            GD.Print(new Vector2((float)(time - startTime), (float)boxter.VX));
+            boxter.shiftGear(1);
+        }
+        AddChild(line);
+        Line2D RedLine = new Line2D
+        {
+            Width = 5.0f,
+            DefaultColor = Color.Color8(255, 0, 0)
+        };
+        RedLine.AddPoint(new Vector2(0 , 500 -(float)7200 / 20));
+        RedLine.AddPoint(new Vector2(OS.GetScreenSize().x, 500 -(float)7200 / 20));
+        AddChild(RedLine);
+    }
+
 
     public void DisplayProjectiles() 
     {
@@ -154,7 +191,7 @@ public class MainNode : Node2D
     public override void _Ready()
     {
         base._Ready();
-        ReadySoccer();
+        ReadyCar();
     }
 
     public override void _Draw()
