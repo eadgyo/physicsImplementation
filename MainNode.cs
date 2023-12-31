@@ -179,6 +179,24 @@ public class MainNode : Node2D
         AddChild(RedLine);
     }
 
+    public void ReadyBoat() 
+    {
+        FountainLightning boat = new FountainLightning(50, 0, 0, 0, 0, 0, 0, 8.4);
+        double dt = 0.1;
+        double time = 0;
+        Line2D line = new Line2D
+        {
+            Width = 5.0f,
+            DefaultColor = Color.Color8(255, 255, 0)
+        };
+        while (boat.Q[1] < 1300) {
+            GD.Print(new Vector2(new Vector2(10 + (float)time * 10, (float)boat.Q[0] * 5)));
+            line.AddPoint(new Vector2(10 + (float)time * 20, 500 - (float)boat.Q[0] * 10) );
+            boat.UpdatePositionAndVelocity(dt);
+            time += dt;
+        }
+        AddChild(line);
+    }
 
     public void DisplayProjectiles() 
     {
@@ -191,8 +209,7 @@ public class MainNode : Node2D
     public override void _Ready()
     {
         base._Ready();
-        ReadySpring();
-        //ReadyCar();
+        ReadyBoat();
     }
 
     public override void _Draw()

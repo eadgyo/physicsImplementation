@@ -17,3 +17,7 @@ Drag effect laminar to turbulence transition + Magnus effect
 ## Boxter
 Simulating shifting gear and engine rpm + velocity from acceleartion with drag
 ![Boxter engine rpm / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/boxter.png)
+
+## Boat
+Boat velocity
+![Boat vel / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/boatvelocity.png)
