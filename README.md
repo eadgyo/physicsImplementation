@@ -21,3 +21,7 @@ Simulating shifting gear and engine rpm + velocity from acceleartion with drag
 ## Boat
 Boat velocity
 ![Boat vel / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/boatvelocity.png)
+
+## Plane
+Plane z
+![Boat z / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/plane.png)

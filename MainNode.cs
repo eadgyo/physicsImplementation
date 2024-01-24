@@ -206,6 +206,24 @@ public class MainNode : Node2D
         ReadyProjectileWithSpin();
     }
 
+    public void ReadyPlane() {
+        Skyhawk plane = new Skyhawk(50, 0, 0, 0, 0, 0, 0);
+        double dt = 0.1;
+        double time = 0;
+        Line2D line = new Line2D
+        {
+            Width = 5.0f,
+            DefaultColor = Color.Color8(255, 255, 0)
+        };
+        while (plane.Q[5] < 1300) {
+            GD.Print(new Vector2(new Vector2(10 + (float)time * 10, (float)plane.Q[0] * 5)));
+            line.AddPoint(new Vector2(10 + (float)time * 20, 500 - (float)plane.Q[0] * 10) );
+            plane.UpdatePositionAndVelocity(dt);
+            time += dt;
+        }
+        AddChild(line);
+    }
+
     public override void _Ready()
     {
         base._Ready();
