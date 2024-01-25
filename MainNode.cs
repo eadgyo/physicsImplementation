@@ -215,19 +215,45 @@ public class MainNode : Node2D
             Width = 5.0f,
             DefaultColor = Color.Color8(255, 255, 0)
         };
-        while (plane.Q[5] < 1300) {
-            GD.Print(new Vector2(new Vector2(10 + (float)time * 10, (float)plane.Q[0] * 5)));
-            line.AddPoint(new Vector2(10 + (float)time * 20, 500 - (float)plane.Q[0] * 10) );
+        while (time < 80.0) {
+            line.AddPoint(new Vector2(10 + (float)time * 10, 500 - (float)plane.Q[5]/50));
             plane.UpdatePositionAndVelocity(dt);
             time += dt;
         }
         AddChild(line);
     }
 
+    public void ReadyRocket() {
+        F1Rocket rocket = new F1Rocket(50, 0, 0, 0, 0, 0);
+        double dt = 0.1;
+        double time = 0;
+        Line2D line = new Line2D
+        {
+            Width = 5.0f,
+            DefaultColor = Color.Color8(255, 0, 0)
+        };
+
+        Line2D line2 = new Line2D
+        {
+            Width = 5.0f,
+            DefaultColor = Color.Color8(0, 0, 255)
+        };
+        while (time < 140.0) {
+            line.AddPoint(new Vector2(10 + (float)time * 3, 500 - (float)rocket.Q[5] / 300) );
+            line2.AddPoint(new Vector2(10 + (float)time * 3, 500 - (float)rocket.Q[4] / 6) );
+            rocket.UpdatePositionAndVelocity(dt);
+            time += dt;
+        }
+        AddChild(line);
+        AddChild(line2);
+    }
+
+
+
     public override void _Ready()
     {
         base._Ready();
-        ReadyBoat();
+        ReadyRocket();
     }
 
     public override void _Draw()

@@ -23,5 +23,10 @@ Boat velocity
 ![Boat vel / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/boatvelocity.png)
 
 ## Plane
-Plane z
-![Boat z / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/plane.png)
+Plane altitude takeoff
+![Plane z / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/plane.png)
+
+## Rocket
+Rocket altitude and z velocity (blue)
+![Rocket z / time](https://raw.githubusercontent.com/eadgyo/physicsImplementation/main/screenshots/rocket.png)
+

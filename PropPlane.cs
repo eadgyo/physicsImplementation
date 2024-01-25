@@ -51,6 +51,11 @@ namespace Edge
             this.throttle = 0.0;
             this.flap = "0";
         }
+        
+        public new void UpdatePositionAndVelocity(double dt) 
+        {
+            OdeSolver.RungeKutta(this, dt);
+        } 
 
         public override double[] GetRightHandSide(double s, double[] q, double[] deltaQ, double ds, double qScale)
         {
